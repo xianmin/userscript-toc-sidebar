@@ -26,7 +26,7 @@ TOC Sidebar is a user script that adds a table of contents (TOC) sidebar to any 
 ## How to Use
 
 1. Install a user script manager like [Tampermonkey - Chrome Web Store](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Greasemonkey – Firefox](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) in your browser
-2. Install the TOC Sidebar script
+2. Install the TOC Sidebar script: https://raw.githubusercontent.com/xianmin/userscript-toc-sidebar/master/toc-sidebar.user.js
 3. Visit any webpage, and press the 't' key to toggle the sidebar
 4. Click on any heading in the sidebar to navigate to that section
 5. Use the '+' and '-' buttons to expand or collapse all headings
