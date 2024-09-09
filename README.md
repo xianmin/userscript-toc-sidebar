@@ -2,6 +2,9 @@
 
 TOC Sidebar is a user script that adds a table of contents (TOC) sidebar to any webpage, enhancing navigation and improving the reading experience.
 
+![TOC-Sidebar Screenshot](./screenshot.png)
+
+
 ## Features
 
 - Automatically generates a table of contents from the headings on the page

@@ -1,11 +1,15 @@
 // ==UserScript==
 // @name         TOC Sidebar
 // @author       xianmin
-// @namespace    http://tampermonkey.net/
+// @namespace    https://www.xianmin.org
 // @version      1.0
 // @description  Press 't' to toggle the TOC sidebar
 // @match        *://*/*
 // @grant        GM_addStyle
+// @icon              https://raw.githubusercontent.com/xianmin/userscript-toc-sidebar/master/icon.svg
+// @homepageURL       https://github.com/xianmin/userscript-toc-sidebar
+// @downloadURL       https://raw.githubusercontent.com/xianmin/userscript-toc-sidebar/master/toc-sidebar.user.js
+// @license        GPLv3 License
 // ==/UserScript==
 
 (function () {
