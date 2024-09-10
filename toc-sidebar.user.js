@@ -2,7 +2,7 @@
 // @name         TOC Sidebar
 // @author       xianmin
 // @namespace    https://www.xianmin.org
-// @version      1.3
+// @version      1.4
 // @description  Press 't' to toggle the TOC sidebar
 // @match        *://*/*
 // @grant        GM_addStyle
@@ -22,9 +22,10 @@
   // Initialize GM_config
   GM_config.init({
     'id': 'TOCConfig',
+    'title': 'TOC Sidebar Settings',
     'fields': {
       'TOCSidebar_ShortcutKey': {
-        'label': 'Trigger Shortcut',
+        'label': 'Trigger TOCSidebar Shortcut',
         'type': 'text',
         'default': 't'
       }
