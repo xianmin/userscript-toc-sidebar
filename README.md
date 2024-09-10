@@ -8,12 +8,13 @@ TOC Sidebar is a user script that adds a table of contents (TOC) sidebar to any 
 ## Features
 
 - Automatically generates a table of contents from the headings on the page
-- Toggle sidebar visibility with the 't' key
+- Toggle sidebar visibility with the <kbd>t</kbd> key, or  Customizable global shortcut key
 - Resizable sidebar
 - Expand/collapse functionality for nested headings
 - Highlights the current section as you scroll
 - Smooth scrolling to selected headings
 - Intelligent content detection to avoid including irrelevant headings
+- Ability to toggle the TOC sidebar from the Tampermonkey menu
 
 ## Advantages
 
@@ -32,5 +33,29 @@ TOC Sidebar is a user script that adds a table of contents (TOC) sidebar to any 
 5. Use the '+' and '-' buttons to expand or collapse all headings
 6. Drag the right edge of the sidebar to resize it
 7. Click the 'X' button or press 't' again to close the sidebar
+
+### Customizing the Shortcut Key
+
+You can customize the global shortcut key used to toggle the TOC sidebar:
+
+1. Click on the Tampermonkey icon in your browser
+2. Select "TOC Settings" from the menu
+3. In the settings panel, click on the "Trigger Shortcut" field
+4. Press the desired key combination (e.g., Ctrl+T)
+5. Click "Save" to apply the new shortcut
+
+The new shortcut will be applied globally across all pages where the script runs.
+
+![TOC-Sidebar in Tampermonkey](./tocsidebar_in_tampermonkey.png)
+
+### Toggling TOC from Tampermonkey Menu
+
+You can also toggle the TOC sidebar directly from the Tampermonkey menu:
+
+1. Click on the Tampermonkey icon in your browser
+2. Look for the "Toggle TOC" option in the menu
+3. Click on "Toggle TOC" to show or hide the sidebar
+
+This provides an alternative way to access the TOC sidebar without using the keyboard shortcut.
 
 Enjoy easier navigation and improved reading experience with TOC Sidebar!
