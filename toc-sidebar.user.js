@@ -2,7 +2,7 @@
 // @name         TOC Sidebar
 // @author       xianmin
 // @namespace    https://www.xianmin.org
-// @version      1.0
+// @version      1.1
 // @description  Press 't' to toggle the TOC sidebar
 // @match        *://*/*
 // @grant        GM_addStyle
