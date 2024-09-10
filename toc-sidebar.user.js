@@ -7,21 +7,73 @@
 // @match        *://*/*
 // @grant        GM_addStyle
 // @grant        GM.registerMenuCommand
+// @grant        GM_setValue
+// @grant        GM_getValue
 // @icon              https://raw.githubusercontent.com/xianmin/userscript-toc-sidebar/master/icon.svg
 // @homepageURL       https://github.com/xianmin/userscript-toc-sidebar
 // @downloadURL       https://raw.githubusercontent.com/xianmin/userscript-toc-sidebar/master/toc-sidebar.user.js
 // @license        GPLv3 License
+// @require           https://openuserjs.org/src/libs/sizzle/GM_config.js
 // ==/UserScript==
 
 (function () {
   'use strict';
 
+  // Initialize GM_config
+  GM_config.init({
+    'id': 'TOCConfig',
+    'fields': {
+      'TOCSidebar_ShortcutKey': {
+        'label': 'Trigger Shortcut',
+        'type': 'text',
+        'default': 't'
+      }
+    },
+    'events': {
+      'open': function(doc) {
+        const shortcutInput = doc.getElementById('TOCConfig_field_TOCSidebar_ShortcutKey');
+        shortcutInput.readOnly = true; // Make the text box read-only to prevent direct input
+        shortcutInput.placeholder = 'Click here and press the shortcut';
+
+        shortcutInput.addEventListener('keydown', function(e) {
+          e.preventDefault();
+          let keys = [];
+          if (e.ctrlKey) keys.push('Ctrl');
+          if (e.altKey) keys.push('Alt');
+          if (e.shiftKey) keys.push('Shift');
+          if (e.metaKey) keys.push('Meta'); // For Mac users
+
+          // Add the main key, but exclude modifier keys
+          if (!['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) {
+            keys.push(e.key);
+          }
+
+          this.value = keys.join('+');
+        });
+      },
+      'save': function() {
+        // Save the shortcut key globally when the config is saved
+        GM_setValue('TOCSidebar_ShortcutKey', GM_config.get('TOCSidebar_ShortcutKey'));
+      }
+    }
+  });
+
   // Add keyboard shortcut listener
   function addKeyboardShortcut() {
     document.addEventListener('keydown', function (e) {
-      // Check if the pressed key is 't' and no modifier keys are pressed
-      if (e.key === 't' && !e.ctrlKey && !e.altKey && !e.metaKey) {
-        // Prevent default action if the active element is not an input or textarea
+      // Get the shortcut key from global storage
+      const shortcutKey = GM_getValue('TOCSidebar_ShortcutKey', 't');
+      let pressedKeys = [];
+      if (e.ctrlKey) pressedKeys.push('Ctrl');
+      if (e.altKey) pressedKeys.push('Alt');
+      if (e.shiftKey) pressedKeys.push('Shift');
+      if (e.metaKey) pressedKeys.push('Meta');
+      pressedKeys.push(e.key);
+
+      const pressedShortcut = pressedKeys.join('+');
+
+      if (pressedShortcut === shortcutKey) {
+        // Prevent default behavior if the active element is not an input or textarea
         if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
           e.preventDefault();
           e.stopPropagation();
@@ -516,4 +568,7 @@
 
   // Add menu button
   GM.registerMenuCommand('Toggle TOC', toggleSidebar)
+
+  // Add a menu item to open the configuration
+  GM.registerMenuCommand('TOC Settings', () => GM_config.open());
 })();
