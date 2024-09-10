@@ -6,6 +6,7 @@
 // @description  Press 't' to toggle the TOC sidebar
 // @match        *://*/*
 // @grant        GM_addStyle
+// @grant        GM.registerMenuCommand
 // @icon              https://raw.githubusercontent.com/xianmin/userscript-toc-sidebar/master/icon.svg
 // @homepageURL       https://github.com/xianmin/userscript-toc-sidebar
 // @downloadURL       https://raw.githubusercontent.com/xianmin/userscript-toc-sidebar/master/toc-sidebar.user.js
@@ -512,4 +513,7 @@
 
   // Call initialize
   initialize();
+
+  // Add menu button
+  GM.registerMenuCommand('Toggle TOC', toggleSidebar)
 })();
